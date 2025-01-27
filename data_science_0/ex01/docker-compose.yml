@@ -23,3 +23,7 @@ services:
         - postgres
       volumes:
         - "./pgadmin/var/lib/pgadmin:/var/lib/pgadmin"
+
+# docker-compose up -d
+# chmod -R 777 ./pgadmin/var/lib/pgadmin
+# docker-compose down
