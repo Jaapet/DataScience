@@ -1,0 +1,13 @@
+CREATE TABLE data_2022_oct (
+    event_time DATETIME NOT NULL,
+    event_type VARCHAR not NULL,
+    product_id INT NOT NULL,
+    price DECIMAL NOT NULL,
+    user_id BIGINT NOT NULL,
+    user_session TEXT PRIMARY KEY
+);
+
+COPY data_2022_oct (event_time, event_type, product_id, price, user_id, user_session)
+FROM '/tmp/data_2022_oct.csv'
+DELIMITER ',' 
+CSV HEADER;
