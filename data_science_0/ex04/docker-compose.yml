@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres
+    image: postgres:15
     container_name: postgres
     environment:
       POSTGRES_USER: ndesprez
@@ -32,4 +32,5 @@ volumes:
 
 # docker-compose up -d
 # chmod -R 777 ./pgadmin/var/lib/pgadmin
-# docker-compose down
+# docker-compose down -v
+# docker system prune -af

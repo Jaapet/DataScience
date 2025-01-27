@@ -18,3 +18,4 @@ volumes:
 # psql -U ndesprez -d piscineds -h localhost -W
 # ...
 # docker-compose down
+# docker system prune -af
