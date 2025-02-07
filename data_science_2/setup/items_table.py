@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from sqlalchemy import create_engine, MetaData, types
+from colorama import Fore
 
 
 def check_table(engine, table: str) -> bool:
@@ -30,7 +31,7 @@ def create_table(path: str) -> None:
 
             # Check if the table already exists in the database
             if not check_table(engine, table):
-                print(f"Creating table {table}")
+                print(Fore.YELLOW + f"Creating table {table}")
                 # Read CSV file into pandas DataFrame
                 data = pd.read_csv(file_path)
                 # Define the column data types for the table
@@ -42,12 +43,12 @@ def create_table(path: str) -> None:
                 }
                 # Write the DataFrame to the PostgreSQL table
                 data.to_sql(table, engine, index=False, dtype=columns, if_exists='fail')
-                print(f"Table {table} created.")
+                print(Fore.GREEN + f"Table {table} created.")
             else:
-                print(f"Table {table} already exists.")
+                print(Fore.BLUE + f"Table {table} already exists.")
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(Fore.RED + f"An error occurred: {e}")
 
 
 if __name__ == "__main__":

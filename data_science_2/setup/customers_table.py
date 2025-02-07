@@ -1,5 +1,6 @@
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.sql import text
+from colorama import Fore
 
 
 def join_tables():
@@ -21,10 +22,10 @@ def join_tables():
         with engine.connect() as connection:
             connection.execute(text(query))
             connection.commit()
-        print("Successfully created 'customers' table")
+        print(Fore.GREEN + "Successfully created 'customers' table")
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(Fore.RED + f"An error occurred: {e}")
 
 
 if __name__ == "__main__":
